@@ -8,7 +8,13 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+    <script src="js/upDown.js"></script>
 </head>
 <body>
 <section class="page-header">
@@ -23,11 +29,17 @@
 <section class="main-content">
     <h3>Welcome to GitHub Pages.</h3>
 
-    <span>
-        <h3>The number:</h3><h3 id="counter">0</h3>
-    </span>
+    <div id="counter-box">
+        <h3 id="counter-label">The number:</h3>
+        <h3 id="counter">0</h3>
+    </div>
+    <button id="counter-button" class="btn btn-primary btn-lg" role="button">Start &raquo;</button>
+
     <h3>Stats</h3>
     <section class="main-content">
+        <p class="stat">Max: <span id="max">0</span></p>
+        <p class="stat">Min: <span id="min">0</span></p>
+        <p class="stat">Number of Switches: <span id="number-of-switches">0</span></p>
     </section>
 
 

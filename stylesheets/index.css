@@ -1,3 +1,30 @@
+
+#counter-box {
+    width: auto;
+    /*outline: black solid 2pt;*/
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#counter-label {
+    float: left;
+}
+
 #counter {
     text-align: center;
+}
+
+#counter-button {
+    margin: auto;
+    display: block;
+}
+
+.main-content {
+    outline: black solid 2pt;
+    font-size: 16pt;
+}
+
+/*super dumb v, done to increase specificity to override existing style */
+.stat.stat {
+    margin-bottom: 0px;
 }
