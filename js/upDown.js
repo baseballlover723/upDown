@@ -35,7 +35,7 @@ function setup() {
     minDOM = $("#min");
 
     numberOfSwitchesDOM = $("#number-of-switches");
-    numberOfSwitches = -1;
+    numberOfSwitches = 0;
 
     posOrNeg = Math.random() < 0.5 ? -1 : 1;
 }
@@ -51,7 +51,7 @@ var start = function() {
 var stop = function() {
     console.log("\nhit stop");
     console.log("switched " + numberOfSwitches + " times");
-    counterButtonDOM.text("Start \u00BB")
+    counterButtonDOM.text("Start \u00BB");
     counterButtonDOM.unbind("click");
     counterButtonDOM.on("click", start);
     clearInterval(interval);
