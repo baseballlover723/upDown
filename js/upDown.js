@@ -23,7 +23,6 @@ var interval;
 
 function setup() {
     counter = 0;
-    posOrNeg = 1;
     counterDOM = $("#counter");
 
     counterButtonDOM = $("#counter-button");
@@ -40,7 +39,7 @@ function setup() {
     posOrNeg = Math.random() < 0.5 ? -1 : 1;
 }
 var start = function() {
-    console.log("\nhit start");
+    //console.log("\nhit start");
     counterButtonDOM.text("Stop \u00BB");
     counterButtonDOM.unbind("click");
     counterButtonDOM.on("click", stop);
@@ -49,8 +48,8 @@ var start = function() {
 };
 
 var stop = function() {
-    console.log("\nhit stop");
-    console.log("switched " + numberOfSwitches + " times");
+    //console.log("\nhit stop");
+    //console.log("switched " + numberOfSwitches + " times");
     counterButtonDOM.text("Start \u00BB");
     counterButtonDOM.unbind("click");
     counterButtonDOM.on("click", start);
@@ -58,7 +57,7 @@ var stop = function() {
 };
 
 function update() {
-    console.log("update");
+    //console.log("update");
     updatePosOrNeg();
     updateCounter();
     updateMinMax();
@@ -72,7 +71,7 @@ function updatePosOrNeg() {
 }
 
 function updateNumberOfSwitches() {
-    console.log("switched direction");
+    //console.log("switched direction");
     numberOfSwitches++;
     numberOfSwitchesDOM.text(numberOfSwitches);
 
