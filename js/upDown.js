@@ -85,7 +85,7 @@ function timeToString(time) {
     // seconds
     //console.log("before seconds: " + time);
     var seconds = time % 60;
-    if (seconds == 0) {
+    if (seconds == 1) {
         returnString = seconds + " second";
     } else {
         returnString = seconds + " seconds";
