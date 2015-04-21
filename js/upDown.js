@@ -17,9 +17,11 @@ var updatesDOM;
 
 var max = 0;
 var maxDOM;
+var maxTimeDOM;
 
 var min = 0;
 var minDOM;
+var minTimeDOM;
 
 var numberOfSwitches = 0;
 var numberOfSwitchesDOM;
@@ -42,8 +44,10 @@ function setup() {
 
     max = 0;
     maxDOM = $("#max");
+    maxTimeDOM = $("#max-time");
     min = 0;
     minDOM = $("#min");
+    minTimeDOM = $("#min-time");
 
     numberOfSwitchesDOM = $("#number-of-switches");
     numberOfSwitches = 0;
@@ -150,10 +154,12 @@ function updateCounter() {
 function updateMinMax() {
     if (counter > max) {
         max = counter;
-        maxDOM.text(max + " at " + timeToString(timeWasted));
+        maxDOM.text(max);
+        maxTimeDOM.text(timeToString(timeWasted));
     } else if (counter < min) {
         min = counter;
-        minDOM.text(min + " at " + timeToString(timeWasted));
+        minDOM.text(min);
+        minTimeDOM.text(timeToString(timeWasted));
     }
 
 }
