@@ -8,12 +8,14 @@ var counterButtonDOM;
 var counter;
 var counterDOM;
 
+var updates;
+var updatesDOM;
+
 var max = 0;
 var maxDOM;
 
 var min = 0;
 var minDOM;
-
 
 var numberOfSwitches = 0;
 var numberOfSwitchesDOM;
@@ -27,6 +29,9 @@ function setup() {
 
     counterButtonDOM = $("#counter-button");
     counterButtonDOM.click(start);
+
+    updates = 0;
+    updatesDOM = $("#updates");
 
     max = 0;
     maxDOM = $("#max");
@@ -58,9 +63,15 @@ var stop = function() {
 
 function update() {
     //console.log("update");
+    updateUpdate();
     updatePosOrNeg();
     updateCounter();
     updateMinMax();
+}
+
+function updateUpdate() {
+    updates++;
+    updatesDOM.text(updates);
 }
 
 function updatePosOrNeg() {
@@ -85,10 +96,10 @@ function updateCounter() {
 function updateMinMax() {
     if (counter > max) {
         max = counter;
-        maxDOM.text(max);
+        maxDOM.text(max + " on update: " + updates);
     } else if (counter < min) {
         min = counter;
-        minDOM.text(min);
+        minDOM.text(min + " on update: " + updates);
     }
 
 }
