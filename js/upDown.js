@@ -150,10 +150,10 @@ function updateCounter() {
 function updateMinMax() {
     if (counter > max) {
         max = counter;
-        maxDOM.text(max + " on update: " + updates);
+        maxDOM.text(max + " at " + timeToString(timeWasted));
     } else if (counter < min) {
         min = counter;
-        minDOM.text(min + " on update: " + updates);
+        minDOM.text(min + " at " + timeToString(timeWasted));
     }
 
 }
