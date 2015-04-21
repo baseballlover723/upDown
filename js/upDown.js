@@ -8,6 +8,10 @@ var counterButtonDOM;
 var counter;
 var counterDOM;
 
+var timeWasted;
+var timeWastedDOM;
+var timeInterval;
+
 var updates;
 var updatesDOM;
 
@@ -30,6 +34,9 @@ function setup() {
     counterButtonDOM = $("#counter-button");
     counterButtonDOM.click(start);
 
+    timeWasted = 0;
+    timeWastedDOM = $("#time-wasted");
+
     updates = 0;
     updatesDOM = $("#updates");
 
@@ -50,6 +57,7 @@ var start = function() {
     counterButtonDOM.on("click", stop);
 
     interval = setInterval(update, UPDATE_INTERVAL);
+    timeInterval = setInterval(updateTime, 1000);
 };
 
 var stop = function() {
@@ -59,7 +67,53 @@ var stop = function() {
     counterButtonDOM.unbind("click");
     counterButtonDOM.on("click", start);
     clearInterval(interval);
+    clearInterval(timeInterval);
 };
+
+function updateTime() {
+    timeWasted++;
+    timeWastedDOM.text(timeToString(timeWasted));
+}
+
+function timeToString(time) {
+    var returnString = "";
+
+    // seconds
+    //console.log("before seconds: " + time);
+    var seconds = time % 60;
+    if (seconds == 0) {
+        returnString = seconds + " second";
+    } else {
+        returnString = seconds + " seconds";
+    }
+    time = (time - seconds) / 60;
+
+    // minutes
+    //console.log("before minutes: "  + time);
+    if (time > 0) {
+        var minutes = time % 60;
+        if (time == 1) {
+            returnString = minutes + " minute " + returnString;
+        } else {
+            returnString = minutes + " minutes " + returnString;
+        }
+        time = (time - minutes) / 60;
+    }
+
+    // hours
+    //console.log("before hour: " + time);
+    if (time > 0) {
+        var hours = time % 24;
+        if (time == 1) {
+            returnString = hours + " hour " + returnString;
+        } else {
+            returnString = hours + " hours " + returnString;
+        }
+        time = (time - hours) / 24;
+    }
+    return returnString;
+
+}
 
 function update() {
     //console.log("update");
